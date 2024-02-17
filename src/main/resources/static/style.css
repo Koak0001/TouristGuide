@@ -1,0 +1,111 @@
+/* style.css */
+
+/* body styles */
+body {
+    font-family: "Candara", ui-rounded ;
+    color: azure;
+    background-color: cadetblue;
+    margin: 0;
+    padding: 0;
+}
+
+/* Nav-bar styles */
+nav {
+    background-color: darkslategray;
+    padding: 10px;
+}
+
+nav a {
+    color: azure;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+header {
+    text-align:Left;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-family: "Tahoma", cursive;
+    color: peachpuff;
+    font-size: 50px
+}
+
+/* Container/div styles */
+.container {
+    padding: 20px;
+}
+
+.site-info-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.site-info {
+    flex: 1 0 50%;
+    margin-bottom: 20px;
+}
+
+aside.site-info {
+    flex: 1 0 8%;
+    margin-left: 30%;
+}
+
+
+.attractions-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.attraction {
+    flex: 1 0 25%;
+    margin-right: 20px;
+}
+
+.options {
+    margin-right: 20px;
+}
+
+.options h2 {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+/* Links styles */
+ul li a {
+    text-decoration: none !important;
+    color: #ffdd00 !important;
+    font-weight: normal;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+    font-weight: bold;!important;
+}
+
+footer {
+    background-color: darkslategray;
+    color: azure;
+    text-align: center;
+    padding: 10px;
+}

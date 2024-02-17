@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!--Do I need this if no th functions here? -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Attractions</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<nav>
+    <a href="#">Home</a>
+    <a href="attractions">Attractions</a>
+    <a href="#">About</a>
+</nav>
+
+<header>
+    <h1>Sensing Copenhagen</h1>
+</header>
+
+<div class="container">
+    <div class="site-info-container">
+        <div class="site-info">
+            <h2>About Us</h2>
+            <p>Welcome to Sensing Copenhagen, your gateway to experiencing the heart of Denmark's vibrant capital through
+                all five senses. Founded with a passion for immersive exploration, we cater to families and couples seeking
+                unforgettable adventures. Our curated selection of attractions embodies the essence of Copenhagen,
+                from the bustling food markets brimming with culinary delights to the serene canals offering tranquil sailing experiences.
+                Dive into the wonders of marine life at the national aquarium, where every sight, sound, and sensation captivates.
+                Let Sensing Copenhagen be your guide as you embark on a sensory journey through the enchanting cityscape of Copenhagen.</p>
+        </div>
+        <aside class="site-info">
+            <h2>FAQ</h2>
+            <p>Frequently asked questions (to be expanded).</p>
+        </aside>
+    </div>
+
+    <div class="attractions-container">
+        <div class="attraction">
+            <img src="images/Den_Bl_Planet1.jpg" class="img-fluid" alt="Attraction 1">
+            <h2>Den Blå Planet, National Aquarium Denmark</h2>
+            <ul>
+                <li><a href="/attractions/Den Blå Planet, National Aquarium Denmark">Read more on our site!</a></li>
+                <li><a href="https://denblaaplanet.dk/" target="_blank">Visit Den Blå Planet's Official Website</a></li>
+            </ul>
+        </div>
+        <div class="attraction">
+            <img src="images/GoBoat_1.jpg" class="img-fluid" alt="Attraction 2">
+            <h2>GoBoat Copenhagen</h2>
+            <ul>
+                <li><a href="/attractions/GoBoat Copenhagen">Read more on our site!</a></li>
+                <li><a href="https://goboat.dk/en/copenhagen" target="_blank">Visit GoBoat Copenhagen's Official Website</a></li>
+
+            </ul>
+        </div>
+        <div class="attraction">
+            <img src="images/Torvehallen1.jpg" class="img-fluid" alt="Attraction 3">
+            <h2>Torvehallerne</h2>
+            <ul>
+                <li><a href="/attractions/Torvehallerne">Read more on our site!</a></li>
+                <li><a href="https://torvehallernekbh.dk/" target="_blank">Visit Torvehallerne's Official Website</a></li>
+            </ul>
+        </div>
+        <!-- drop down menu -->
+        <div class="options">
+            <h2>Edit Attractions</h2>
+            <h4>Delete Attraction</h4>
+            <form action="/attractions/delete" method="post">
+                <select name="attraction">
+                    <option value="Den Blå Planet, National Aquarium Denmark">Den Blå Planet</option>
+                    <option value="GoBoat Copenhagen">GoBoat Copenhagen</option>
+                    <option value="Torvehallerne">Torvehallerne</option>
+
+                </select>
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+<footer>
+    <p>Phone Number: +45 1234 5678 </p>
+    <p>Email Address: info@sensingcopenhagen.com</p>
+    <p>&copy; 2024 Sensing Copenhagen. All rights reserved. </p>
+</footer>
+</body>
+</html>
