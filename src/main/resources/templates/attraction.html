@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- TODO CREATE CSS STYLESHEET-->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +9,7 @@
 <body>
 <h1 th:text="${attraction.name}"></h1>
 <img th:src="${attraction.imagePath}" alt="Attraction Image">
-<p th:text="${attraction.description}"></p>
+<p th:text="${attraction.descriptionLong}"></p>
 
 </body>
 </html>

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- TODO CREATE CSS STYLESHEET-->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -29,6 +30,13 @@
     <tr th:each="attraction : ${attractions}">
         <td th:text="${attraction.name}"></td>
         <td th:text="${attraction.description}"></td>
+        <td th:text="${attraction.city}"></td>
+        <td>
+            <form th:action="@{'/attractions/' + ${attraction.name} + '/tags'}" method="get">
+
+            <button type="submit">Tags</button>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>

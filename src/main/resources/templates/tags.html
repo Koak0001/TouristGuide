@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<!-- TODO CREATE CSS STYLESHEET-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tags</title>
+</head>
+<body>
+<h1>Tags</h1>
+<ul>
+    <li th:each="tagName : ${tagNames}" th:text="${tagName}"></li>
+</ul>
+</body>
+</html>

@@ -31,6 +31,11 @@ public class TouristAttraction {
     public String getImagePath() {
         return imagePath;
     }
+    public String getCity(){return city;}
+    public String getDescriptionLong(){return descriptionLong;}
+    public EnumSet<Tags> getTags() {
+        return tags;
+    }
 
     public enum Tags {
         FAMILY("Family"),
@@ -52,5 +57,6 @@ public class TouristAttraction {
         public String getTagName() {
             return tagName;
         }
+
     }
 }
