@@ -34,6 +34,11 @@ public class TouristRepository {
         EnumSet<Tags> tags4 = EnumSet.of(Tags.CULTURE, Tags.ART);
         TouristAttraction attraction4 = new TouristAttraction("Arken", tags4,"Ishøj", "Discover modern art at Arken, a must-visit museum near Copenhagen.","Immerse yourself in the vibrant world of contemporary art at Arken, showcasing innovative works from renowned Danish and international artists.");
         addTouristAttraction(attraction4);
+
+        EnumSet<TouristAttraction.Tags> tags5 = EnumSet.of(Tags.ART, Tags.CULTURE, Tags.SCENIC);
+        TouristAttraction attraction5 = new TouristAttraction("Louisiana Museum of Modern Art", tags5, "Humlebæk", "Immerse yourself in contemporary art at Louisiana, a renowned museum.", "Explore the beautiful surroundings of Louisiana Museum of Modern Art while discovering a diverse collection of contemporary artworks from around the world.");
+        addTouristAttraction(attraction5);
+
     }
 
     public void addTouristAttraction(TouristAttraction touristAttraction) {

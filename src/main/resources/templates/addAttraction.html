@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Tourist Attraction</title>
+</head>
+<body>
+<h1>Add Tourist Attraction</h1>
+<form th:action="@{/attractions/save}" th:object="${attraction}" method="post">
+    Name: <input type="text" th:field="*{name}"/><br/>
+    Description: <input type="text" th:field="*{description}"/><br/>
+    City:
+    <select th:field="*{city}">
+    <option value="Copenhagen">Copenhagen</option>
+    <option value="Dragør">Dragør</option>
+    <option value="Elsinore">Elsinore</option>
+    <option value="Glostrup">Glostrup</option>
+    <option value="Hellerup">Hellerup</option>
+    <option value="Helsingborg">Helsingborg</option>
+    <option value="Helsingør">Helsingør</option>
+    <option value="Herlev">Herlev</option>
+    <option value="Humlebæk">Humlebæk</option>
+    <option value="Kastrup">Kastrup</option>
+    <option value="Klampenborg">Klampenborg</option>
+    <option value="Køge">Køge</option>
+    <option value="Malmö">Malmö</option>
+    <option value="Roskilde">Roskilde</option>
+    <option value="Vallensbæk Strand">Vallensbæk Strand</option>
+</select>
+    <br/>
+    Long Description: <input type="text" th:field="*{descriptionLong}"/><br/>
+    Tags: <br>
+    <label th:each="tag : ${T(tourism.model.TouristAttraction.Tags).values()}">
+        <input type="checkbox" th:field="*{tags}" th:value="${tag}" />
+        <span th:text="${tag.getTagName()}"></span><br/>
+    </label>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

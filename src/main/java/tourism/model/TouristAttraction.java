@@ -37,6 +37,10 @@ public class TouristAttraction {
         return tags;
     }
 
+    public void setTags(EnumSet<Tags> tags) {
+        this.tags = tags;
+    }
+
     public enum Tags {
         FAMILY("Family"),
         FOOD("Food"),
@@ -57,6 +61,9 @@ public class TouristAttraction {
         public String getTagName() {
             return tagName;
         }
-
+    }
+    @Override
+    public String toString() {
+        return "TouristAttraction{name='" + name + "', city='" + city + "', description='" + description + "', descriptionLong='" + descriptionLong + "', tags='" + tags + "'}";
     }
 }

@@ -11,6 +11,7 @@ import tourism.model.TouristAttraction.Tags;
 
 import java.util.EnumSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Controller
@@ -35,10 +36,16 @@ public class TouristController {
         model.addAttribute("attraction", attraction);
         return "attraction";
     }
-    @PostMapping("/add") //TODO UPDATE FROM ResponseEntity
-    public ResponseEntity<Void> addAttraction(@RequestBody TouristAttraction attraction) {
+    @GetMapping("/add")
+    public String showAddAttractionForm(Model model) {
+    TouristAttraction newAttraction = new TouristAttraction("", null, "", "", "");
+    model.addAttribute("attraction", newAttraction);
+    return "addAttraction";
+}
+    @PostMapping("/save")
+    public String saveAttraction(@ModelAttribute("attraction") TouristAttraction attraction) {
         touristService.addTouristAttraction(attraction);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return "redirect:/attractions";
     }
     @PostMapping("/update") //TODO UPDATE FROM ResponseEntity
     public ResponseEntity<Void> updateAttraction(@RequestParam String name, @RequestBody TouristAttraction updatedAttraction) {
