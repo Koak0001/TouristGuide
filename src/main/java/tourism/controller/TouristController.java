@@ -47,11 +47,19 @@ public class TouristController {
         touristService.addTouristAttraction(attraction);
         return "redirect:/attractions";
     }
-    @PostMapping("/update") //TODO UPDATE FROM ResponseEntity
-    public ResponseEntity<Void> updateAttraction(@RequestParam String name, @RequestBody TouristAttraction updatedAttraction) {
-        touristService.updateTouristAttraction(name, updatedAttraction);
-        return new ResponseEntity<>(HttpStatus.OK);
+
+@GetMapping("/update/{name}")
+public String showUpdateAttractionForm(@PathVariable String name, Model model) {
+    TouristAttraction attraction = touristService.getTouristAttractionByName(name);
+    model.addAttribute("attraction", attraction);
+    return "editAttraction";
+}
+    @PostMapping("/update/{name}/submit")
+    public String updateAttraction(@PathVariable String name, @ModelAttribute("attraction") TouristAttraction attraction) {
+        touristService.updateTouristAttraction(name, attraction);
+        return "redirect:/attractions";
     }
+
     @GetMapping("/delete/{name}") //TODO UPDATE FROM ResponseEntity
     public ResponseEntity<Void> deleteAttraction(@PathVariable String name) {
         boolean deleted = touristService.deleteTouristAttraction(name);
@@ -61,6 +69,7 @@ public class TouristController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
     @GetMapping("/{name}/tags")
     public String getAttractionTagsByName(@PathVariable String name, Model model) {
         TouristAttraction attraction = touristService.getTouristAttractionByName(name);
