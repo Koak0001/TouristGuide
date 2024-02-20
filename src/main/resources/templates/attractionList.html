@@ -37,7 +37,9 @@
             </form>
         </td>
         <td>
-            <button>Delete</button>
+            <form th:action="@{'/attractions/delete/' + ${attraction.name}}" method="post">
+            <button type="submit">Delete</button>
+            </form>
         </td>
         <td>
             <form th:action="@{'/attractions/' + ${attraction.name} + '/tags'}" method="get">

@@ -60,15 +60,20 @@ public String showUpdateAttractionForm(@PathVariable String name, Model model) {
         return "redirect:/attractions";
     }
 
-    @GetMapping("/delete/{name}") //TODO UPDATE FROM ResponseEntity
-    public ResponseEntity<Void> deleteAttraction(@PathVariable String name) {
-        boolean deleted = touristService.deleteTouristAttraction(name);
-        if (deleted) {
-            return new ResponseEntity<>(HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+//    @GetMapping("/delete/{name}") //TODO UPDATE FROM ResponseEntity
+//    public ResponseEntity<Void> deleteAttraction(@PathVariable String name) {
+//        boolean deleted = touristService.deleteTouristAttraction(name);
+//        if (deleted) {
+//            return new ResponseEntity<>(HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
+@PostMapping("/delete/{name}")
+public String deleteAttraction(@PathVariable String name, Model model) {
+    touristService.deleteTouristAttraction(name);
+    return "redirect:/attractions";
+}
 
     @GetMapping("/{name}/tags")
     public String getAttractionTagsByName(@PathVariable String name, Model model) {
