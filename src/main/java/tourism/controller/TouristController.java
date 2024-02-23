@@ -1,17 +1,12 @@
 package tourism.controller;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import tourism.model.TouristAttraction;
 import tourism.service.TouristService;
 import tourism.model.TouristAttraction.Tags;
-
-import java.util.EnumSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Controller
@@ -48,42 +43,34 @@ public class TouristController {
         return "redirect:/attractions";
     }
 
-@GetMapping("/update/{name}")
-public String showUpdateAttractionForm(@PathVariable String name, Model model) {
-    TouristAttraction attraction = touristService.getTouristAttractionByName(name);
-    model.addAttribute("attraction", attraction);
-    return "editAttraction";
-}
-    @PostMapping("/update/{name}/submit")
-    public String updateAttraction(@PathVariable String name, @ModelAttribute("attraction") TouristAttraction attraction) {
-        touristService.updateTouristAttraction(name, attraction);
+    @GetMapping("/{name}/edit")
+    public String showUpdateAttractionForm(@PathVariable String name, Model model) {
+        TouristAttraction attraction = touristService.getTouristAttractionByName(name);
+        model.addAttribute("attraction", attraction);
+        return "editAttraction";
+    }
+    @PostMapping("/update")
+    public String updateAttraction(@ModelAttribute("attraction") TouristAttraction attraction) {
+        touristService.updateTouristAttraction(attraction);
         return "redirect:/attractions";
     }
 
-//    @GetMapping("/delete/{name}") //TODO UPDATE FROM ResponseEntity
-//    public ResponseEntity<Void> deleteAttraction(@PathVariable String name) {
-//        boolean deleted = touristService.deleteTouristAttraction(name);
-//        if (deleted) {
-//            return new ResponseEntity<>(HttpStatus.OK);
-//        } else {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//    }
-@PostMapping("/delete/{name}")
-public String deleteAttraction(@PathVariable String name, Model model) {
-    touristService.deleteTouristAttraction(name);
-    return "redirect:/attractions";
-}
+    @PostMapping("/delete/{name}")
+    public String deleteAttraction(@PathVariable String name, Model model) {
+        touristService.deleteTouristAttraction(name);
+        return "redirect:/attractions";
+    }
 
     @GetMapping("/{name}/tags")
     public String getAttractionTagsByName(@PathVariable String name, Model model) {
         TouristAttraction attraction = touristService.getTouristAttractionByName(name);
         if (attraction == null) {
-            return "attractionNotFound"; //TODO CREATE HTML PAGE
+            return "attractionNotFound";
         }
         List<String> tagNames = attraction.getTags().stream()
                 .map(Tags::getTagName)
                 .collect(Collectors.toList());
+        model.addAttribute("attractionName", name);
         model.addAttribute("tagNames", tagNames);
         return "tags";
     }

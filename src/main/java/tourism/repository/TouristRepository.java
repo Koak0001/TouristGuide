@@ -58,14 +58,14 @@ public class TouristRepository {
         throw new IllegalArgumentException("Tourist Attraction with name " + name + " not found");
     }
 
-    public void updateTouristAttraction(String name, TouristAttraction updatedAttraction) {
+    public void updateTouristAttraction(TouristAttraction updatedAttraction) {
         for (int i = 0; i < touristAttractions.size(); i++) {
-            if (touristAttractions.get(i).getName().equalsIgnoreCase(name)) {
+            if (touristAttractions.get(i).getName().equalsIgnoreCase(updatedAttraction.getName())) {
                 touristAttractions.set(i, updatedAttraction);
                 return;
             }
         }
-        throw new IllegalArgumentException("Tourist Attraction with name " + name + " not found");
+        throw new IllegalArgumentException("Tourist Attraction with name  not found");
     }
 
     public boolean deleteTouristAttraction(String name) {

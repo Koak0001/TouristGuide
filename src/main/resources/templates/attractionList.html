@@ -5,21 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Attractions</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-    </style>
+    <link rel="stylesheet"  href="/style.css">
+
 </head>
 <body>
-<h1>All Attractions</h1>
-<table>
+<nav>
+    <a href="/">Home</a>
+    <br>
+    <br>
+    <form action="attractions/add" method="get">
+        <button class="add-btn" type="submit">Add new attraction</button>
+    </form>
+</nav>
+<header>
+<h2>All Attractions</h2></header>
+<table class="attractionList-table">
     <thead>
     <tr>
         <th>Name</th>
@@ -28,12 +28,14 @@
     </thead>
     <tbody>
     <tr th:each="attraction : ${attractions}">
-        <td th:text="${attraction.name}"></td>
+        <td>
+            <a th:href="@{'attractions/' + ${attraction.name}}" th:text="${attraction.name}"></a>
+        </td>
         <td th:text="${attraction.description}"></td>
         <td th:text="${attraction.city}"></td>
         <td>
-            <form th:action="@{'/attractions/update/' + ${attraction.name}}" method="get">
-            <button type="submit">Update</button>
+            <form th:action="@{'/attractions/' + ${attraction.name} + '/edit'}" method="get">
+            <button type="submit">Edit</button>
             </form>
         </td>
         <td>
@@ -50,5 +52,10 @@
     </tr>
     </tbody>
 </table>
+<footer>
+    <p>Phone Number: +45 1234 5678 |
+        Email Address: info@sensingcopenhagen.com |
+        &copy; 2024 Sensing Copenhagen. All rights reserved. </p>
+</footer>
 </body>
 </html>
