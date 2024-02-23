@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- TODO CREATE CSS STYLESHEET-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tags</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+<nav>
+    <a href="/">Home</a>
+    <a href="/attractions">Attractions</a>
+</nav>
+<header>
+    <h2>Tags for:</h2>
+    <h2 th:text="${attractionName}"></h2>
+</header>
+<ul>
+    <li th:each="tagName : ${tagNames}" th:text="${tagName}"></li>
+</ul>
+<footer>
+    <p>Phone Number: +45 1234 5678 |
+        Email Address: info@sensingcopenhagen.com |
+        &copy; 2024 Sensing Copenhagen. All rights reserved. </p>
+</footer>
+</body>
+</html>

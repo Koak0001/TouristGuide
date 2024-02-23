@@ -15,13 +15,10 @@ public class TouristService {
         this.touristRepository = touristRepository;
     }
 
-
-    // Create
     public void addTouristAttraction(TouristAttraction touristAttraction) {
         touristRepository.addTouristAttraction(touristAttraction);
     }
 
-    // Read
     public List<TouristAttraction> getAllTouristAttractions() {
         return touristRepository.getAllTouristAttractions();
     }
@@ -29,13 +26,9 @@ public class TouristService {
     public TouristAttraction getTouristAttractionByName(String name) {
         return touristRepository.getTouristAttractionByName(name);
     }
-
-    // Update
-    public void updateTouristAttraction(String name, TouristAttraction updatedAttraction) {
-        touristRepository.updateTouristAttraction(name, updatedAttraction);
+    public void updateTouristAttraction(TouristAttraction updatedAttraction) {
+        touristRepository.updateTouristAttraction(updatedAttraction);
     }
-
-    // Delete
     public boolean deleteTouristAttraction(String name) {
         return touristRepository.deleteTouristAttraction(name);
     }

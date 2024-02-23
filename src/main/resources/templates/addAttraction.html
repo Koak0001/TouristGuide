@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Tourist Attraction</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+<nav>
+    <a href="/">Home</a>
+    <a href="/attractions">Attractions</a>
+</nav>
+<header>
+<h1>Add Tourist Attraction</h1>
+</header>
+<div class="form-container-new">
+<form th:action="@{/attractions/save}" th:object="${attraction}" method="post" class="boxed-form">
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" th:field="*{name}" id="name">
+    </div>
+
+    <div class="form-group">
+        <label for="description">Brief description:</label>
+        <textarea th:field="*{description}" id="description"></textarea>
+    </div>
+
+    <div class="form-group">
+    <label for="city">City:</label>
+    <select th:field="*{city}" id="city">
+    <option value="Copenhagen">Copenhagen</option>
+    <option value="Dragør">Dragør</option>
+    <option value="Elsinore">Elsinore</option>
+    <option value="Glostrup">Glostrup</option>
+    <option value="Hellerup">Hellerup</option>
+    <option value="Helsingborg">Helsingborg</option>
+    <option value="Helsingør">Helsingør</option>
+    <option value="Herlev">Herlev</option>
+    <option value="Humlebæk">Humlebæk</option>
+    <option value="Kastrup">Kastrup</option>
+    <option value="Klampenborg">Klampenborg</option>
+    <option value="Køge">Køge</option>
+    <option value="Malmö">Malmö</option>
+    <option value="Roskilde">Roskilde</option>
+    <option value="Vallensbæk Strand">Vallensbæk Strand</option>
+</select>
+    </div>
+    <div class="form-group">
+        <label for="descriptionLong">Long Description:</label>
+        <textarea th:field="*{descriptionLong}" id="descriptionLong"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Tags:</label>
+        <div th:each="tag : ${T(tourism.model.TouristAttraction.Tags).values()}" class="checkbox">
+            <input type="checkbox" th:field="*{tags}" th:value="${tag}" id="tag-[[${tag}]]"/>
+            <label th:for="${'tag-' + tag}" th:text="${tag.getTagName()}"></label>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button type="submit">Submit</button>
+    </div>
+
+</form>
+</div>
+<footer>
+    <p>Phone Number: +45 1234 5678 |
+        Email Address: info@sensingcopenhagen.com |
+        &copy; 2024 Sensing Copenhagen. All rights reserved. </p>
+</footer>
+</body>
+</html>

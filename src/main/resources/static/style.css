@@ -1,15 +1,15 @@
 /* style.css */
 
-/* body styles */
+
 body {
     font-family: "Candara", ui-rounded ;
     color: azure;
     background-color: cadetblue;
     margin: 0;
-    padding: 0;
+    padding-bottom: 60px;
 }
 
-/* Nav-bar styles */
+
 nav {
     background-color: darkslategray;
     padding: 10px;
@@ -31,15 +31,51 @@ header {
 }
 
 header h1 {
-    margin: 0;
+    margin: 20px;
     font-family: "Tahoma", cursive;
     color: peachpuff;
-    font-size: 50px
+    font-size: 55px
+}
+header h2 {
+    margin: 20px;
+    font-family: "Candara Light", ui-rounded;
+    color: peachpuff;
+    font-size: 45px;
+}
+h2 {
+    font-weight: bold;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Container/div styles */
-.container {
-    padding: 20px;
+.left-heading {
+    text-align: left;
+    margin-top: 0;
+}
+
+.right-heading {
+    text-align: right;
+    margin-top: 0;
+    margin-right: 40%;
+}
+label {
+    font-weight: bold;
+}
+.containers{
+    display: flex;
+}
+.containers1, .containers2 {
+    flex: 1;
+}
+
+.containers1{
+    margin-left: 25px;
+}
+.containers2{
+    margin-right: 35px;
 }
 
 .site-info-container {
@@ -52,6 +88,7 @@ header h1 {
 .site-info {
     flex: 1 0 50%;
     margin-bottom: 20px;
+    margin-left: 25px;
 }
 
 aside.site-info {
@@ -59,10 +96,30 @@ aside.site-info {
     margin-left: 30%;
 }
 
+.attractionList-table {
+    width: 90%;
+    border-collapse: collapse;
+    border: 2px solid #ccc;
+    margin-left: 25px;
+}
+
+.attractionList-table th,
+.attractionList-table td {
+    border: 2px solid #ccc;
+    padding: 8px;
+}
+.attractionList-table tbody tr td a {
+    color: azure;
+    text-decoration: underline;
+}
+.attractionList-table tbody tr td a:hover {
+font-weight: bold;
+}
 
 .attractions-container {
     display: flex;
     flex-wrap: wrap;
+    margin-left: 15px;
 }
 
 .attraction {
@@ -70,13 +127,58 @@ aside.site-info {
     margin-right: 20px;
 }
 
-.options {
-    margin-right: 20px;
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+.form-container-new {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 50%;
+
 }
 
-.options h2 {
-    margin: 0;
+.boxed-form {
+    border: none;
+    padding: 2px;
+    width: 100%;
 }
+
+.form-group {
+    border: 3px solid #ccc;
+    padding: 15px;
+    box-sizing: border-box;
+    width: 90%;
+    margin-bottom: 20px;
+}
+.form-group input[type="text"] {
+    width: 100%;
+    height: 100%;
+}
+.form-group textarea {
+    width: 100%;
+    height: 75px;
+    resize: vertical;
+}
+
+.add-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 2px;
+}
+.add-btn:hover{
+    font-weight: bold;
+
+}
+
+.btn-secondary{
+
+}
+
 
 img {
     max-width: 100%;
@@ -85,7 +187,8 @@ img {
 
 ul {
     list-style-type: none;
-    padding: 0;
+    padding: 10px;
+    margin-left: 20px;
 }
 
 li {
@@ -103,7 +206,12 @@ ul li a:hover {
     font-weight: bold;!important;
 }
 
+
 footer {
+    height: 35px;
+    width: 100%;
+    position: fixed;
+    bottom: 0 ;
     background-color: darkslategray;
     color: azure;
     text-align: center;

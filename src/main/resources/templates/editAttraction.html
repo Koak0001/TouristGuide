@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Tourist Attraction</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+<nav>
+    <a href="/">Home</a>
+    <a href="/attractions">Attractions</a>
+</nav>
+<header class="header-container">
+    <h2 class="left-heading">Edit Tourist Attraction</h2>
+    <h2 class="right-heading">Original</h2>
+</header>
+<div class="containers">
+    <div class="containers1">
+<div class="form-container">
+<form th:action="@{'/attractions/update'}" th:object="${attraction}" method="post" class="boxed-form">
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" th:field="*{name}" id="name" readonly/>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Brief description:</label>
+        <textarea th:field="*{description}" id="description"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="city">City:</label>
+        <select th:field="*{city}" id="city">
+        <option value="Copenhagen">Copenhagen</option>
+        <option value="Dragør">Dragør</option>
+        <option value="Elsinore">Elsinore</option>
+        <option value="Glostrup">Glostrup</option>
+        <option value="Hellerup">Hellerup</option>
+        <option value="Helsingborg">Helsingborg</option>
+        <option value="Helsingør">Helsingør</option>
+        <option value="Herlev">Herlev</option>
+        <option value="Humlebæk">Humlebæk</option>
+        <option value="Kastrup">Kastrup</option>
+        <option value="Klampenborg">Klampenborg</option>
+        <option value="Køge">Køge</option>
+        <option value="Malmö">Malmö</option>
+        <option value="Roskilde">Roskilde</option>
+        <option value="Vallensbæk Strand">Vallensbæk Strand</option>
+    </select>
+    </div>
+    <div class="form-group">
+        <label for="descriptionLong">Long Description:</label>
+        <textarea th:field="*{descriptionLong}" id="descriptionLong"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Tags:</label>
+        <div th:each="tag : ${T(tourism.model.TouristAttraction.Tags).values()}" class="checkbox">
+            <input type="checkbox" th:field="*{tags}" th:value="${tag}" id="tag-[[${tag}]]"/>
+            <label th:for="${'tag-' + tag}" th:text="${tag.getTagName()}"></label>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button type="submit">Submit</button>
+        <button type="button" onclick="window.location.href='/attractions'" class="btn-secondary">Cancel</button>
+    </div>
+    </form>
+    </div>
+    </div>
+    <div class="containers2">
+        <h2 th:text="${attraction.name}" style="margin-top: 0"></h2>
+        <img th:src="${attraction.imagePath}" alt="Image not available for this attraction." style="width: 556px; height: 312px;">
+        <br>
+        <h4>City:</h4>
+        <p th:text="${attraction.city}"></p>
+        <br>
+        <h4>Brief description:</h4>
+        <p th:text="${attraction.description}"></p>
+        <br>
+        <h4>Long Description:</h4>
+        <p th:text="${attraction.descriptionLong}"></p>
+        <br>
+        <h4>Tags:</h4>
+        <ul>
+            <li th:each="tagName : ${attraction.tags}" th:text="${tagName.tagName}"></li>
+        </ul>
+    </div>
+</div>
+<footer>
+    <p>Phone Number: +45 1234 5678 |
+        Email Address: info@sensingcopenhagen.com |
+        &copy; 2024 Sensing Copenhagen. All rights reserved. </p>
+</footer>
+</body>
+</html>
