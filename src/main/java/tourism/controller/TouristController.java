@@ -33,7 +33,7 @@ public class TouristController {
     }
     @GetMapping("/add")
     public String showAddAttractionForm(Model model) {
-    TouristAttraction newAttraction = new TouristAttraction("", null, "", "", "");
+    TouristAttraction newAttraction = new TouristAttraction(0,"", null, "", "");
     model.addAttribute("attraction", newAttraction);
     return "addAttraction";
 }

@@ -3,6 +3,8 @@ package tourism.model;
 import java.util.EnumSet;
 
 public class TouristAttraction {
+
+    private int attractionId;
     private String name;
     private EnumSet<Tags> tags;
     private String city;
@@ -10,16 +12,24 @@ public class TouristAttraction {
     private String descriptionLong;
     private String imagePath;
 
-    public TouristAttraction(String name, EnumSet<Tags> tags, String city, String description, String descriptionLong) {
+    public TouristAttraction(int attractionId, String name, String city, String description, String descriptionLong) {
         this.name = name;
-        this.tags = tags;
         this.city = city;
         this.description = description;
         this.descriptionLong = descriptionLong;
     }
+
+    public int getAttractionId() {
+        return attractionId;
+    }
+
+    public void setAttractionId(int attractionId) {
+        this.attractionId = attractionId;
+    }
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
+
 
     public String getName() {
         return name;
