@@ -14,7 +14,7 @@ public class AppConfig {
                 .driverClassName("com.mysql.cj.jdbc.Driver")
                 .url("jdbc:mysql://tourist-sql.mysql.database.azure.com:3306/mydb")
                 .username("Koak0001")
-                .password("Smoelferne#87")
+                .password("Abekat#87")
                 .build();
     }
 
